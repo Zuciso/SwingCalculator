@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Swingdemo {
     public static void main(String[] args) {
@@ -17,6 +19,7 @@ class Addition extends JFrame implements ActionListener{
     JTextField t1;
     JButton b1,b2,b3,b4;
     JLabel l;
+    JRadioButton rb,rb2;
     public Addition(){
         s0=s1=s2="";
 
@@ -47,7 +50,8 @@ class Addition extends JFrame implements ActionListener{
         bm = new JButton("*");
         beq = new JButton("C");
         be = new JButton(".");
-
+        rb= new JRadioButton("Male");
+        rb2=new JRadioButton("Female");
 
         bm.addActionListener(this);
         bd.addActionListener(this);
@@ -87,10 +91,18 @@ class Addition extends JFrame implements ActionListener{
         add(b0);
         add(beq);
         add(beq1);
+
         setBackground(Color.yellow);
 
 
-
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                int x = e.getX();
+                int y=e.getY();
+                System.out.println(x+ " " +y);
+            }
+        });
 
         setLayout(new FlowLayout());
         setVisible(true);

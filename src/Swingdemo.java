@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -50,8 +51,43 @@ class Addition extends JFrame implements ActionListener{
         bm = new JButton("*");
         beq = new JButton("C");
         be = new JButton(".");
-        rb= new JRadioButton("Male");
-        rb2=new JRadioButton("Female");
+        Container mainContainer = getContentPane();
+        mainContainer.setLayout(new BorderLayout(8,6));
+
+        getRootPane().setBorder(BorderFactory.createMatteBorder(4,4,4,4,Color.green));
+        JPanel top = new JPanel();
+        top.setBorder(new LineBorder(Color.BLACK,3));
+
+        top.setLayout(new FlowLayout());
+
+        top.add(t1);
+        mainContainer.add(top,BorderLayout.NORTH);
+        JPanel temp = new JPanel();
+        temp.setLayout(new FlowLayout());
+        JPanel mid = new JPanel();
+        mid.setLayout(new GridLayout(4,4,4,4));
+
+        mid.add(ba);
+        mid.add(b1);
+        mid.add(b2);
+        mid.add(b3);
+        mid.add(bs);
+        mid.add(b4);
+        mid.add(b5);
+        mid.add(b6);
+        mid.add(bm);
+        mid.add(b7);
+        mid.add(b8);
+        mid.add(b9);
+        mid.add(bd);
+        mid.add(be);
+        mid.add(b0);
+        mid.add(beq);
+        temp.add(mid);
+        mainContainer.add(temp,BorderLayout.WEST);
+        JPanel bot = new JPanel();
+        bot.add(beq1);
+        mainContainer.add(bot,BorderLayout.SOUTH);
 
         bm.addActionListener(this);
         bd.addActionListener(this);
@@ -70,29 +106,10 @@ class Addition extends JFrame implements ActionListener{
         be.addActionListener(this);
         beq.addActionListener(this);
         beq1.addActionListener(this);
-        JPanel p= new JPanel();
 
-        System.out.println("ds");
-        add(t1);
-        add(ba);
-        add(b1);
-        add(b2);
-        add(b3);
-        add(bs);
-        add(b4);
-        add(b5);
-        add(b6);
-        add(bm);
-        add(b7);
-        add(b8);
-        add(b9);
-        add(bd);
-        add(be);
-        add(b0);
-        add(beq);
-        add(beq1);
 
-        setBackground(Color.yellow);
+
+
 
 
         addMouseListener(new MouseAdapter() {
@@ -103,6 +120,7 @@ class Addition extends JFrame implements ActionListener{
                 System.out.println(x+ " " +y);
             }
         });
+        setLocation(500,300);
 
         setLayout(new FlowLayout());
         setVisible(true);
